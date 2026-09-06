@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Orma — Privacy Policy</title>
+<style>
+  :root { color-scheme: light dark; }
+  * { box-sizing: border-box; }
+  body {
+    font: 16px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    max-width: 720px; margin: 0 auto; padding: 40px 22px 96px;
+    color: #1a1a1f; background: #fbfbfd;
+  }
+  h1 { font-size: 2rem; margin: 0 0 4px; letter-spacing: -0.02em; }
+  h2 { font-size: 1.28rem; margin: 40px 0 10px; letter-spacing: -0.01em; }
+  h3 { font-size: 1.04rem; margin: 26px 0 6px; }
+  .updated { color: #6b7280; font-size: 0.92rem; margin-bottom: 8px; }
+  a { color: #2563c9; }
+  hr { border: none; border-top: 1px solid #e5e7eb; margin: 34px 0; }
+  table { border-collapse: collapse; width: 100%; margin: 12px 0; font-size: 0.95rem; }
+  th, td { border: 1px solid #e0e2e8; padding: 8px 10px; text-align: left; vertical-align: top; }
+  th { background: #f0f1f4; }
+  .lede { font-size: 1.06rem; }
+  code { background: #eef0f4; padding: 1px 5px; border-radius: 4px; font-size: 0.9em; }
+  footer { margin-top: 48px; color: #6b7280; font-size: 0.88rem; }
+  @media (prefers-color-scheme: dark) {
+    body { color: #e7e9ee; background: #0f1115; }
+    a { color: #7fb0ff; }
+    hr { border-top-color: #262a31; }
+    th, td { border-color: #2a2f37; }
+    th { background: #1a1e25; }
+    .updated, footer { color: #9aa1ad; }
+    code { background: #1a1e25; }
+  }
+</style>
+</head>
+<body>
+<h1>Privacy Policy</h1>
+<p class="updated">Last updated: 5 September 2026</p>
+
+<h2>The short version</h2>
+<p class="lede">Orma uncovers a map as you walk. To do that it records <strong>where you go, continuously, including while the app is closed</strong>. That location history is the core of the product — it is what draws your map — and it is stored on your device and in your account.</p>
+<p>We do not sell your data. We do not run ads. We do not share your location with anyone except the friends you personally accept, and the parts of communities you personally post to.</p>
+<p>You can delete your account, and everything in it, from inside the app at any time.</p>
+
+<hr>
+
+<h2>What we collect</h2>
+
+<h3>Location — including in the background</h3>
+<p>This is the sensitive one, so it comes first.</p>
+<ul>
+  <li><strong>What:</strong> precise GPS coordinates, recorded continuously, including when the app is in the background or your phone is locked.</li>
+  <li><strong>Why:</strong> it is the entire feature. Walking somewhere clears the fog over that area of your map. With background location off, the app cannot do the one thing it exists to do.</li>
+  <li><strong>How it is stored:</strong> as an accumulated “explored area” shape attached to your account, plus the coordinates attached to any photo, beacon or postcard you create.</li>
+  <li><strong>Who can see it:</strong> you. Friends you have accepted can see your explored area and your photo pins. Nobody else. You can hide your own map and photos at any time from the map’s layers control.</li>
+  <li><strong>Turning it off:</strong> revoke location permission in your device Settings. The app keeps working; your map simply stops updating.</li>
+</ul>
+
+<h3>Motion and activity</h3>
+<p>Used to detect when you are stationary so tracking can throttle down and save battery. Processed on your device by the location library. Not stored on our servers.</p>
+
+<h3>Your account</h3>
+<p>Email address (for sign-in), username, display name, and an optional profile picture.</p>
+
+<h3>Photos you take</h3>
+<p>Photos you choose to capture in the app, together with the coordinates where they were taken, and any caption you write. Photos you attach to a community comment are visible to every signed-in user.</p>
+
+<h3>Things you post</h3>
+<p>Friend relationships, comments and likes, beacons and postcards, community memberships, meetup RSVPs, and “explorers’ thoughts” left on places. Comments and thoughts posted in a community are visible to all signed-in users of the app.</p>
+
+<h3>Notifications</h3>
+<p>If you allow them, a push notification token so we can tell you when a friend sends you something.</p>
+
+<h3>Crash reports</h3>
+<p>Diagnostic data when the app crashes, so it can be fixed. This can include device model, OS version and a stack trace.</p>
+
+<hr>
+
+<h2>Who else receives data</h2>
+<p>We use these services to run the app. Each one is listed with what it actually receives.</p>
+<table>
+  <thead><tr><th>Service</th><th>What it receives</th><th>Why</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Supabase</strong></td><td>Your account, explored areas, photos, and everything you post</td><td>Database, file storage and authentication</td></tr>
+    <tr><td><strong>Mapbox</strong></td><td>Map requests for the area you are viewing</td><td>Drawing the map</td></tr>
+    <tr><td><strong>Expo</strong></td><td>Your push notification token</td><td>Delivering notifications and app updates</td></tr>
+    <tr><td><strong>Sentry</strong></td><td>Crash diagnostics</td><td>Fixing crashes</td></tr>
+    <tr><td><strong>OpenStreetMap</strong> (Nominatim, Overpass)</td><td>Coordinates, to look up place names and nearby places</td><td>Naming where you are, and finding cafes and landmarks</td></tr>
+    <tr><td><strong>Apple</strong></td><td>Purchase and installation data governed by Apple’s own policy</td><td>Distribution via the App Store</td></tr>
+  </tbody>
+</table>
+<p>We do not sell personal data, and we do not share it with advertisers or data brokers.</p>
+
+<hr>
+
+<h2>A note on how photos are served</h2>
+<p>Photos are stored with unguessable random filenames and served over HTTPS from public URLs, so the app can display them quickly. This means <strong>anyone who obtains the full URL of a photo can view it</strong>, even without an account. The URLs are not listed or discoverable anywhere, and cannot be browsed or enumerated.</p>
+<p>We are telling you this because it is true, not because it is ideal. If you would not want a photo seen by someone who somehow obtained its link, do not post it.</p>
+
+<hr>
+
+<h2>How long we keep things</h2>
+<p>As long as your account exists. Delete your account and it goes.</p>
+
+<h2>Deleting your account</h2>
+<p><strong>Settings → Safety &amp; privacy → Delete account.</strong></p>
+<p>This removes your profile, explored areas, photos, comments, beacons, postcards, friendships, community posts and notification tokens, and deletes your stored image files. It is immediate and cannot be undone. Local data on your device is cleared at the same time.</p>
+
+<h2>Your rights</h2>
+<p>Depending on where you live, you may have the right to access, correct, export or delete your personal data, and to object to certain processing. The delete-account button covers deletion in full. For anything else, email us and we will action it.</p>
+<p>Legal bases, where UK/EU GDPR applies: <strong>consent</strong> for location, camera, photos and notifications (each requested explicitly, each revocable in your device Settings), and <strong>legitimate interests</strong> for security, abuse prevention and crash diagnostics.</p>
+
+<h2>Children</h2>
+<p>Orma is not directed at children under 13, and we do not knowingly collect their data. If you believe a child has created an account, email us and we will remove it.</p>
+
+<h2>Changes</h2>
+<p>If this policy changes materially, we will update the date at the top and notify you in the app.</p>
+
+<h2>Contact</h2>
+<p>Orma is operated by <strong>Rayan Aman</strong>. Questions about this policy or your data:<br>
+<a href="mailto:rayan2004aman@gmail.com">rayan2004aman@gmail.com</a></p>
+
+<footer>
+  <p><a href="./index.html">← Orma</a> &nbsp;·&nbsp; <a href="./terms.html">Terms of Service</a></p>
+</footer>
+</body>
+</html>
