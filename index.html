@@ -226,6 +226,10 @@
   @keyframes ripple { from { transform: scale(0.9); opacity: 0.7; } to { transform: scale(3.6); opacity: 0; } }
   .closing h2 { font-size: clamp(44px, 7.5vw, 96px); letter-spacing: -0.022em; word-spacing: 0.06em; line-height: 1; margin: 0 0 34px; }
   .closing .cta-row { justify-content: center; }
+  .follow { color: var(--faint); margin: 26px 0 0; font-size: 15px; }
+  .follow b { color: var(--text); font-weight: 700; }
+  .follow a { color: var(--muted); text-underline-offset: 3px; text-decoration-color: rgba(242,245,251,0.3); }
+  .follow a:hover { color: var(--text); }
 
   footer { border-top: 1px solid var(--rim); padding: 30px 0 44px; }
   footer .wrap { display: flex; flex-wrap: wrap; gap: 16px 28px; align-items: center; justify-content: space-between; color: var(--faint); font-size: 14px; }
@@ -269,10 +273,10 @@
       <span>ORMA</span>
     </a>
     <div class="head-links">
-      <a class="icon-link" href="https://www.tiktok.com/@orma.earth" aria-label="Orma on TikTok">
+      <a class="icon-link" href="https://www.tiktok.com/@orma.app" aria-label="Orma on TikTok">
         <svg viewBox="0 0 24 24"><path d="M16.6 2h-3.3v13.1a2.9 2.9 0 1 1-2.9-2.9c.3 0 .6 0 .9.1V8.9a6.3 6.3 0 1 0 5.3 6.2V8.5a7.8 7.8 0 0 0 4.4 1.4V6.6c-2.4 0-4.4-2-4.4-4.6Z"/></svg>
       </a>
-      <a class="icon-link" href="https://www.instagram.com/orma.earth/" aria-label="Orma on Instagram">
+      <a class="icon-link" href="https://www.instagram.com/orma.app/" aria-label="Orma on Instagram">
         <svg viewBox="0 0 24 24"><path d="M12 7.2a4.8 4.8 0 1 0 0 9.6 4.8 4.8 0 0 0 0-9.6Zm0 7.9a3.1 3.1 0 1 1 0-6.2 3.1 3.1 0 0 1 0 6.2Zm6.1-8.1a1.1 1.1 0 1 1-2.2 0 1.1 1.1 0 0 1 2.2 0ZM12 3.6c2.7 0 3 0 4.1.1 1 0 1.6.2 1.9.4.5.2.8.4 1.2.8.4.4.6.7.8 1.2.1.3.3.9.4 1.9.1 1.1.1 1.4.1 4.1s0 3-.1 4.1c0 1-.2 1.6-.4 1.9-.2.5-.4.8-.8 1.2-.4.4-.7.6-1.2.8-.3.1-.9.3-1.9.4-1.1.1-1.4.1-4.1.1s-3 0-4.1-.1c-1 0-1.6-.2-1.9-.4-.5-.2-.8-.4-1.2-.8-.4-.4-.6-.7-.8-1.2-.1-.3-.3-.9-.4-1.9C3.6 15 3.6 14.7 3.6 12s0-3 .1-4.1c0-1 .2-1.6.4-1.9.2-.5.4-.8.8-1.2.4-.4.7-.6 1.2-.8.3-.1.9-.3 1.9-.4 1.1-.1 1.4-.1 4-.1Zm0-1.8c-2.8 0-3.1 0-4.2.1-1.1 0-1.8.2-2.5.5-.7.3-1.3.6-1.8 1.2-.6.6-.9 1.1-1.2 1.8-.3.7-.4 1.4-.5 2.5C1.8 8.9 1.8 9.2 1.8 12s0 3.1.1 4.2c0 1.1.2 1.8.5 2.5.3.7.6 1.3 1.2 1.8.6.6 1.1.9 1.8 1.2.7.3 1.4.4 2.5.5 1.1.1 1.4.1 4.2.1s3.1 0 4.2-.1c1.1 0 1.8-.2 2.5-.5.7-.3 1.3-.6 1.8-1.2.6-.6.9-1.1 1.2-1.8.3-.7.4-1.4.5-2.5.1-1.1.1-1.4.1-4.2s0-3.1-.1-4.2c0-1.1-.2-1.8-.5-2.5-.3-.7-.6-1.3-1.2-1.8-.6-.6-1.1-.9-1.8-1.2-.7-.3-1.4-.4-2.5-.5C15.1 1.8 14.8 1.8 12 1.8Z"/></svg>
       </a>
       <a class="pill" href="#join">Join the beta</a>
@@ -294,7 +298,6 @@
       <p class="lede">Clear the fog everywhere you go. Watch your friends clear theirs.</p>
       <div class="cta-row">
         <a class="btn btn-chalk" href="#join">Join the free beta</a>
-        <a class="btn btn-ghost" href="https://www.tiktok.com/@orma.earth">Watch on TikTok</a>
       </div>
     </div>
   </div>
@@ -370,7 +373,7 @@
 <section class="manifesto" aria-label="Manifesto">
   <div class="stick">
     <div class="wrap">
-      <p id="manifesto">Most of us loop the same few streets. The rest of the map is <span class="s">fog.</span></p>
+      <p id="manifesto">You've lived here for years. How much of it have you actually <span class="s">seen?</span></p>
     </div>
   </div>
 </section>
@@ -433,8 +436,8 @@
     <h2 class="rise">See you <em class="s">out there.</em></h2>
     <div class="cta-row rise">
       <a class="btn btn-chalk" href="#join">Join the free beta</a>
-      <a class="btn btn-ghost" href="https://www.instagram.com/orma.earth/">@orma.earth</a>
     </div>
+    <p class="follow rise">Follow <b>@orma.app</b> on <a href="https://www.tiktok.com/@orma.app">TikTok</a> and <a href="https://www.instagram.com/orma.app/">Instagram</a></p>
   </div>
 </section>
 
@@ -442,8 +445,8 @@
   <div class="wrap">
     <span>© 2026 Orma &nbsp;·&nbsp; <em class="s">leave a trace.</em></span>
     <nav>
-      <a href="https://www.tiktok.com/@orma.earth">TikTok</a>
-      <a href="https://www.instagram.com/orma.earth/">Instagram</a>
+      <a href="https://www.tiktok.com/@orma.app">TikTok</a>
+      <a href="https://www.instagram.com/orma.app/">Instagram</a>
       <a href="./privacy.html">Privacy</a>
       <a href="./terms.html">Terms</a>
       <a href="mailto:support@orma.earth">support@orma.earth</a>
