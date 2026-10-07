@@ -98,6 +98,14 @@
   .hud b { color: var(--text); font-variant-numeric: tabular-nums; font-size: 15px; }
   .hud .bar { width: 70px; height: 4px; border-radius: 2px; background: rgba(255,255,255,0.14); overflow: hidden; }
   .hud .bar i { display: block; height: 100%; width: 0%; background: var(--chalk); transition: width .3s ease; }
+  .hud { transition: border-color .3s ease, box-shadow .3s ease; }
+  .hud-a { display: none; align-items: center; gap: 8px; }
+  .hud-a svg { width: 17px; height: 17px; stroke: var(--gold); fill: none; stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; }
+  .hud-a b { color: var(--gold-hi); font-size: 14px; }
+  .hud.ach { border-color: rgba(245,185,66,0.6); box-shadow: 0 0 26px rgba(245,185,66,0.3); }
+  .hud.ach .hud-n { display: none; }
+  .hud.ach .hud-a { display: flex; }
+  .playzone { display: none; }
   .hint { position: absolute; right: 26px; bottom: 30px; color: var(--faint); font-size: 13px; font-style: italic; pointer-events: none; transition: opacity .6s ease; }
 
   /* Achievement toast — the app's, in miniature */
@@ -248,7 +256,21 @@
     .join-grid { grid-template-columns: 1fr; gap: 64px; }
     .join-line { left: 50%; right: auto; top: 76px; bottom: 76px; width: 2px; height: auto; transform: translateX(-1px);
       background-image: linear-gradient(180deg, rgba(244,246,248,0.45) 50%, transparent 0); background-size: 2px 14px; }
-    .hero .btn { flex: 1 1 100%; }
+    .hero .btn { flex: 1 1 100%; padding: 14px 22px; }
+    .hero-copy { justify-content: flex-start; padding-top: 86px; }
+    .hero h1 { font-size: clamp(44px, 13vw, 64px); margin-bottom: 14px; }
+    .hero .kicker { margin-bottom: 10px; }
+    .hero .lede { font-size: 17px; margin-bottom: 20px; }
+    .hud { bottom: 16px; }
+    .toast { display: none; }
+    /* Dragging here clears fog instead of scrolling — like the app's map.
+       Swipes on the copy above still scroll the page. */
+    .playzone { display: block; position: absolute; left: 0; right: 0; bottom: 0; top: 60%; touch-action: none; }
+    .playzone span {
+      position: absolute; left: 50%; top: 38%; transform: translateX(-50%); white-space: nowrap;
+      color: var(--faint); font-size: 13px; font-style: italic; letter-spacing: 0.02em;
+      transition: opacity .6s ease; pointer-events: none;
+    }
     .hint { display: none; }
     .head-links .icon-link { display: none; }
     .name { padding: 90px 0; }
@@ -301,7 +323,8 @@
       </div>
     </div>
   </div>
-  <div class="hud" aria-live="off"><span>You've uncovered</span><b id="pct">0%</b><span class="bar"><i id="pctbar"></i></span></div>
+  <div class="hud" id="hud" aria-live="polite"><span class="hud-n">You've uncovered</span><b id="pct" class="hud-n">0%</b><span class="bar hud-n"><i id="pctbar"></i></span><span class="hud-a"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="9" r="5.5"/><path d="M8.6 13.4 7 21l5-2.6 5 2.6-1.6-7.6"/></svg><b id="hudAch"></b></span></div>
+  <div class="playzone" id="playzone" aria-hidden="true"><span id="zoneHint">drag here to clear the fog</span></div>
   <div class="hint" id="hint">move around to clear the fog</div>
 </section>
 
@@ -373,7 +396,7 @@
 <section class="manifesto" aria-label="Manifesto">
   <div class="stick">
     <div class="wrap">
-      <p id="manifesto">You've lived here for years. How much of it have you actually <span class="s">seen?</span></p>
+      <p id="manifesto">The best parts of your area could be the places you <span class="s">haven't explored yet.</span></p>
     </div>
   </div>
 </section>
@@ -458,7 +481,8 @@
 (() => {
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const DPR = Math.min(devicePixelRatio || 1, 2);
-  const touch = matchMedia('(pointer: coarse)').matches;
+  const narrow = () => innerWidth <= 860;
+  let zoneTop = 0;
 
   // ── Value noise + fbm (seeded) ──
   function makeNoise(seed) {
@@ -588,6 +612,13 @@
 
   function size() {
     const r = cv.getBoundingClientRect(); W = r.width; H = r.height;
+    // Phones: the open patch of map starts just under the copy (and its button).
+    const zone = document.getElementById('playzone');
+    if (narrow()) {
+      const copyBottom = document.querySelector('.hero-copy .wrap').getBoundingClientRect().bottom - r.top;
+      zoneTop = Math.min(H * 0.72, Math.max(H * 0.45, copyBottom + 18));
+      zone.style.top = zoneTop + 'px';
+    } else { zoneTop = 0; zone.style.top = ''; }
     cv.width = W * DPR; cv.height = H * DPR; cx.setTransform(DPR, 0, 0, DPR, 0, 0);
     buildMap(); buildFog(); dirty = true;
   }
@@ -623,7 +654,15 @@
   ];
   let mIdx = 0, toastTimer;
   const toast = document.getElementById('toast');
+  const hud = document.getElementById('hud'), hudAch = document.getElementById('hudAch');
+  let hudTimer;
   function showToast(title, body) {
+    if (narrow()) {
+      hudAch.textContent = title + ' unlocked';
+      hud.classList.add('ach'); clearTimeout(hudTimer);
+      hudTimer = setTimeout(() => hud.classList.remove('ach'), 2600);
+      return;
+    }
     document.getElementById('toastTitle').textContent = title;
     document.getElementById('toastBody').textContent = body;
     toast.classList.add('show'); clearTimeout(toastTimer);
@@ -632,12 +671,16 @@
   function updateHud() {
     const pct = Math.min(100, Math.round(cellsOn / cellsTotal * 100));
     pctEl.textContent = pct + '%'; barEl.style.width = pct + '%';
-    if (interacted && mIdx < MILESTONES.length && pct >= MILESTONES[mIdx][0]) { showToast(MILESTONES[mIdx][1], MILESTONES[mIdx][2]); mIdx++; }
+    // A fast scribble can pass several milestones at once: show only the highest.
+    if (interacted && mIdx < MILESTONES.length && pct >= MILESTONES[mIdx][0]) {
+      while (mIdx + 1 < MILESTONES.length && pct >= MILESTONES[mIdx + 1][0]) mIdx++;
+      showToast(MILESTONES[mIdx][1], MILESTONES[mIdx][2]); mIdx++;
+    }
   }
 
   // An explorer wanders until you take over.
   let walker = { x: 0, y: 0, a: -0.6, t: 0 };
-  function resetWalker() { walker = { x: W * (touch ? 0.3 : 0.62), y: H * (touch ? 0.8 : 0.72), a: touch ? 0.2 : -0.9, t: 0 }; }
+  function resetWalker() { walker = { x: W * (narrow() ? 0.25 : 0.62), y: narrow() ? (zoneTop + H) / 2 : H * 0.72, a: narrow() ? 0.2 : -0.9, t: 0 }; }
   const steer = makeNoise(3);
 
   function frame(now) {
@@ -645,7 +688,7 @@
       walker.t += 1;
       walker.a += (steer(walker.t * 0.01, 0.5) - 0.5) * 0.12;
       const nx = walker.x + Math.cos(walker.a) * 1.6, ny = walker.y + Math.sin(walker.a) * 1.6;
-      if (nx < (touch ? 30 : W * 0.45) || nx > W - 30 || ny < (touch ? H * 0.74 : 80) || ny > H - 90) walker.a += 0.08; else { walker.x = nx; walker.y = ny; }
+      if (nx < (narrow() ? 30 : W * 0.45) || nx > W - 30 || ny < (narrow() ? zoneTop + 24 : 80) || ny > H - (narrow() ? 70 : 90)) walker.a += 0.08; else { walker.x = nx; walker.y = ny; }
       if (walker.t % 3 === 0) reveal(walker.x, walker.y, brush() * 0.75);
     }
     if (dirty) {
@@ -664,7 +707,7 @@
 
   function takeOver() {
     if (interacted) return;
-    interacted = true; hint.style.opacity = 0; dirty = true;
+    interacted = true; hint.style.opacity = 0; document.getElementById('zoneHint').style.opacity = 0; dirty = true;
   }
   const local = (e) => { const r = cv.getBoundingClientRect(); return [e.clientX - r.left, e.clientY - r.top]; };
   const heroEl = document.querySelector('.hero');
