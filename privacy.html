@@ -40,11 +40,12 @@
 <body>
 <a class="home" href="./"><img src="./apple-touch-icon.png" alt="">ORMA</a>
 <h1>Privacy Policy</h1>
-<p class="updated">Last updated: 5 September 2026</p>
+<p class="updated">Last updated: 26 October 2026</p>
 
 <h2>The short version</h2>
 <p class="lede">Orma uncovers a map as you walk. To do that it records <strong>where you go, continuously, including while the app is closed</strong>. That location history is the core of the product — it is what draws your map — and it is stored on your device and in your account.</p>
-<p>We do not sell your data. We do not run ads. We do not share your location with anyone except the friends you personally accept, and the parts of communities you personally post to.</p>
+<p>We do not sell your personal information. We do not run ads. Your map and photo pins are shared only with the friends you personally accept; the few things that reach other people (like a cafe check-in, or a comment in a city community) are listed below, and only happen when you choose to do them.</p>
+<p>We may publish or share <strong>aggregated, de-identified statistics</strong> — for example, how much of a city Orma users have explored in total — that cannot be used to identify you.</p>
 <p>You can delete your account, and everything in it, from inside the app at any time.</p>
 
 <hr>
@@ -56,8 +57,9 @@
 <ul>
   <li><strong>What:</strong> precise GPS coordinates, recorded continuously, including when the app is in the background or your phone is locked.</li>
   <li><strong>Why:</strong> it is the entire feature. Walking somewhere clears the fog over that area of your map. With background location off, the app cannot do the one thing it exists to do.</li>
-  <li><strong>How it is stored:</strong> as an accumulated “explored area” shape attached to your account, plus the coordinates attached to any photo, beacon or postcard you create.</li>
-  <li><strong>Who can see it:</strong> you. Friends you have accepted can see your explored area and your photo pins. Nobody else. You can hide your own map and photos at any time from the map’s layers control.</li>
+  <li><strong>How it is stored:</strong> as an accumulated “explored area” (a grid of map squares you have uncovered) attached to your account, a day-by-day record of newly explored ground for the last two weeks (for weekly stats), the cafes and places you have been near or claimed, and the coordinates attached to any photo, beacon or postcard you create. We do not upload a timestamped GPS trail of your movements.</li>
+  <li><strong>Who can see it:</strong> you. Friends you have accepted can see your explored area, your photo pins, the cafes you have claimed, and your exploration totals on leaderboards and your weekly recap. You can hide your own map and photos at any time from the map’s layers control.</li>
+  <li><strong>Cafe check-ins (only if you check in):</strong> other people checked in at the same cafe at the same time can see your profile, and members of that city’s community see how many people are there — a number only, not who. A check-in ends when you leave or after two hours.</li>
   <li><strong>Turning it off:</strong> revoke location permission in your device Settings. The app keeps working; your map simply stops updating.</li>
 </ul>
 
@@ -65,7 +67,8 @@
 <p>Used to detect when you are stationary so tracking can throttle down and save battery. Processed on your device by the location library. Not stored on our servers.</p>
 
 <h3>Your account</h3>
-<p>Email address (for sign-in), username, display name, and an optional profile picture.</p>
+<p>Email address (for sign-in), username, display name, an optional profile picture and bio, your hometown if you set one, and your <strong>date of birth</strong> (Orma is for adults; your birthday is visible only to you). We also record which version of our Terms and this policy you accepted, and when.</p>
+<p>Your username, display name and profile picture are visible to other signed-in users so that friends can find you.</p>
 
 <h3>Photos you take</h3>
 <p>Photos you choose to capture in the app, together with the coordinates where they were taken, and any caption you write. Photos you attach to a community comment are visible to every signed-in user.</p>
@@ -79,6 +82,9 @@
 <h3>Crash reports</h3>
 <p>Diagnostic data when the app crashes, so it can be fixed. This can include device model, OS version and a stack trace.</p>
 
+<h3>How you use the app</h3>
+<p>Product analytics: which screens you open and which features you use (for example, opening the feed, posting a photo, adding a friend), along with device type, app version and summary statistics about how well tracking is working (such as how many hours it ran and how many gaps it had). This is linked to your account and used only to understand and improve Orma. It is not used for advertising and not combined with data from other companies. You can turn it off in Settings.</p>
+
 <hr>
 
 <h2>Who else receives data</h2>
@@ -87,14 +93,18 @@
   <thead><tr><th>Service</th><th>What it receives</th><th>Why</th></tr></thead>
   <tbody>
     <tr><td><strong>Supabase</strong></td><td>Your account, explored areas, photos, and everything you post</td><td>Database, file storage and authentication</td></tr>
-    <tr><td><strong>Mapbox</strong></td><td>Map requests for the area you are viewing</td><td>Drawing the map</td></tr>
+    <tr><td><strong>Mapbox</strong></td><td>Map requests for the area you are viewing; anonymous usage telemetry from the map SDK (you can opt out with the ⓘ button on the map)</td><td>Drawing the map</td></tr>
     <tr><td><strong>Expo</strong></td><td>Your push notification token</td><td>Delivering notifications and app updates</td></tr>
     <tr><td><strong>Sentry</strong></td><td>Crash diagnostics</td><td>Fixing crashes</td></tr>
+    <tr><td><strong>PostHog</strong></td><td>Product analytics described above</td><td>Understanding which features are used</td></tr>
+    <tr><td><strong>Open-Meteo</strong></td><td>The approximate coordinates of the map area you are viewing</td><td>Showing the weather there</td></tr>
+    <tr><td><strong>Resend</strong></td><td>Your email address and the content of account emails</td><td>Sending sign-in and password-reset emails</td></tr>
     <tr><td><strong>OpenStreetMap</strong> (Nominatim, Overpass)</td><td>Coordinates, to look up place names and nearby places</td><td>Naming where you are, and finding cafes and landmarks</td></tr>
     <tr><td><strong>Apple</strong></td><td>Purchase and installation data governed by Apple’s own policy</td><td>Distribution via the App Store</td></tr>
   </tbody>
 </table>
-<p>We do not sell personal data, and we do not share it with advertisers or data brokers.</p>
+<p>We do not sell personal information, and we do not share it with advertisers or data brokers. If that ever changed, it would only be with your explicit, opt-in consent — never by changing this page alone.</p>
+<p><strong>Where data is stored:</strong> these providers may store and process data outside your province or country, including in the United States, where it may be accessible to authorities under local law.</p>
 <p><strong>This website (orma.earth)</strong> uses Cloudflare Web Analytics to count page views. It sets no cookies, does not fingerprint you, and does not track you across sites. It is separate from the app.</p>
 
 <hr>
@@ -106,25 +116,25 @@
 <hr>
 
 <h2>How long we keep things</h2>
-<p>As long as your account exists. Delete your account and it goes.</p>
+<p>As long as your account exists. Delete your account and it goes. Copies may remain in our providers’ encrypted backups and logs for up to 30 days before they are overwritten; crash reports and analytics events are kept for up to 12 months.</p>
 
 <h2>Deleting your account</h2>
-<p><strong>Settings → Safety &amp; privacy → Delete account.</strong></p>
+<p>In the app, open your profile (<strong>You</strong>), scroll to the bottom and tap <strong>Delete account</strong>.</p>
 <p>This removes your profile, explored areas, photos, comments, beacons, postcards, friendships, community posts and notification tokens, and deletes your stored image files. It is immediate and cannot be undone. Local data on your device is cleared at the same time.</p>
 
 <h2>Your rights</h2>
 <p>Depending on where you live, you may have the right to access, correct, export or delete your personal data, and to object to certain processing. The delete-account button covers deletion in full. For anything else, email us and we will action it.</p>
 <p>Legal bases, where UK/EU GDPR applies: <strong>consent</strong> for location, camera, photos and notifications (each requested explicitly, each revocable in your device Settings), and <strong>legitimate interests</strong> for security, abuse prevention and crash diagnostics.</p>
 
-<h2>Children</h2>
-<p>Orma is not directed at children under 13, and we do not knowingly collect their data. If you believe a child has created an account, email us and we will remove it.</p>
+<h2>Age</h2>
+<p>Orma is only for adults aged 18 and over. We ask for your date of birth when you sign up and do not knowingly collect data from anyone younger. If you believe someone under 18 has an account, email us and we will remove it.</p>
 
 <h2>Changes</h2>
-<p>If this policy changes materially, we will update the date at the top and notify you in the app.</p>
+<p>If this policy changes materially, we will update the date at the top and notify you in the app before the change applies to you. Where the law requires it, we will ask for your consent.</p>
 
 <h2>Contact</h2>
-<p>Orma is operated by <strong>Rayan Aman</strong>. Questions about this policy or your data:<br>
-<a href="mailto:rayan2004aman@gmail.com">rayan2004aman@gmail.com</a></p>
+<p>Orma is operated by <strong>Rayan Aman</strong> (Ontario, Canada), who is also responsible for privacy. Questions about this policy or your data, or to report a privacy concern:<br>
+<a href="mailto:privacy@orma.earth">privacy@orma.earth</a></p>
 
 <footer>
   <p><a href="./index.html">← Orma</a> &nbsp;·&nbsp; <a href="./terms.html">Terms of Service</a></p>
