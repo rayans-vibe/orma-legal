@@ -35,16 +35,18 @@
     .updated, footer { color: #9aa1ad; }
     code { background: #1a1e25; }
   }
+  .lang { margin: -18px 0 18px; font-size: 0.9rem; }
 </style>
 </head>
 <body>
 <a class="home" href="./"><img src="./apple-touch-icon.png" alt="">ORMA</a>
+<p class="lang"><a href="./privacy-fr.html" hreflang="fr" lang="fr">Français</a></p>
 <h1>Privacy Policy</h1>
-<p class="updated">Last updated: 26 October 2026</p>
+<p class="updated">Last updated: 5 November 2026</p>
 
 <h2>The short version</h2>
 <p class="lede">Orma uncovers a map as you walk. To do that it records <strong>where you go, continuously, including while the app is closed</strong>. That location history is the core of the product — it is what draws your map — and it is stored on your device and in your account.</p>
-<p>We do not sell your personal information. We do not run ads. Your map and photo pins are shared only with the friends you personally accept; the few things that reach other people (like a cafe check-in, or a comment in a city community) are listed below, and only happen when you choose to do them.</p>
+<p>We do not sell your personal information. We do not run ads. Your map and photo pins are shared only with the friends you personally accept; the few things that reach other people (like a comment in a city community) are listed below, and only happen when you choose to do them.</p>
 <p>We may publish or share <strong>aggregated, de-identified statistics</strong> — for example, how much of a city Orma users have explored in total — that cannot be used to identify you.</p>
 <p>You can delete your account, and everything in it, from inside the app at any time.</p>
 
@@ -59,15 +61,16 @@
   <li><strong>Why:</strong> it is the entire feature. Walking somewhere clears the fog over that area of your map. With background location off, the app cannot do the one thing it exists to do.</li>
   <li><strong>How it is stored:</strong> as an accumulated “explored area” (a grid of map squares you have uncovered) attached to your account, a day-by-day record of newly explored ground for the last two weeks (for weekly stats), the cafes and places you have been near or claimed, and the coordinates attached to any photo, beacon or postcard you create. We do not upload a timestamped GPS trail of your movements.</li>
   <li><strong>Who can see it:</strong> you. Friends you have accepted can see your explored area, your photo pins, the cafes you have claimed, and your exploration totals on leaderboards and your weekly recap. You can hide your own map and photos at any time from the map’s layers control.</li>
-  <li><strong>Cafe check-ins (only if you check in):</strong> other people checked in at the same cafe at the same time can see your profile, and members of that city’s community see how many people are there — a number only, not who. A check-in ends when you leave or after two hours.</li>
+  <li><strong>Cafes you claim first, and places you add:</strong> if you are the first explorer to claim a cafe, or you add a place to a city, your name and profile picture show on that place to every signed-in user, with the date. Your other claims (which cafes, and when) are visible to your friends and to members of that city’s community.</li>
   <li><strong>Turning it off:</strong> revoke location permission in your device Settings. The app keeps working; your map simply stops updating.</li>
+  <li><strong>Off until you turn it on:</strong> nothing is recorded until you grant location permission in the system prompt, and background recording only after you choose “Always”.</li>
 </ul>
 
 <h3>Motion and activity</h3>
 <p>Used to detect when you are stationary so tracking can throttle down and save battery. Processed on your device by the location library. Not stored on our servers.</p>
 
 <h3>Your account</h3>
-<p>Email address (for sign-in), username, display name, an optional profile picture and bio, your hometown if you set one, and your <strong>date of birth</strong> (Orma is for adults; your birthday is visible only to you). We also record which version of our Terms and this policy you accepted, and when.</p>
+<p>Email address (for sign-in), username, display name, an optional profile picture and bio, your hometown if you set one, and your <strong>date of birth</strong> (Orma is for adults; your birthday is visible only to you). On iPhone, at sign-up we also ask Apple whether you are an adult (your age range); we use the answer only to check eligibility and do not store it. We also record which version of our Terms and this policy you accepted, and when.</p>
 <p>Your username, display name and profile picture are visible to other signed-in users so that friends can find you.</p>
 
 <h3>Photos you take</h3>
@@ -93,14 +96,16 @@
   <thead><tr><th>Service</th><th>What it receives</th><th>Why</th></tr></thead>
   <tbody>
     <tr><td><strong>Supabase</strong></td><td>Your account, explored areas, photos, and everything you post</td><td>Database, file storage and authentication</td></tr>
-    <tr><td><strong>Mapbox</strong></td><td>Map requests for the area you are viewing; anonymous usage telemetry from the map SDK (you can opt out with the ⓘ button on the map)</td><td>Drawing the map</td></tr>
+    <tr><td><strong>Mapbox</strong></td><td>Map requests for the area you are viewing; nothing else: the map SDK’s own telemetry is switched off</td><td>Drawing the map</td></tr>
+    <tr><td><strong>hCaptcha</strong> (Intuition Machines)</td><td>Device and interaction signals during sign-up, under <a href="https://www.hcaptcha.com/privacy">hCaptcha’s Privacy Policy</a> and <a href="https://www.hcaptcha.com/terms">Terms</a></td><td>Stopping automated sign-ups</td></tr>
+    <tr><td><strong>Have I Been Pwned</strong></td><td>The first 5 characters of a one-way hash of the password you choose at sign-up, never the password itself</td><td>Refusing passwords known from data breaches</td></tr>
     <tr><td><strong>Expo</strong></td><td>Your push notification token</td><td>Delivering notifications and app updates</td></tr>
     <tr><td><strong>Sentry</strong></td><td>Crash diagnostics</td><td>Fixing crashes</td></tr>
     <tr><td><strong>PostHog</strong></td><td>Product analytics described above</td><td>Understanding which features are used</td></tr>
     <tr><td><strong>Open-Meteo</strong></td><td>The approximate coordinates of the map area you are viewing</td><td>Showing the weather there</td></tr>
     <tr><td><strong>Resend</strong></td><td>Your email address and the content of account emails</td><td>Sending sign-in and password-reset emails</td></tr>
     <tr><td><strong>OpenStreetMap</strong> (Nominatim, Overpass)</td><td>Coordinates, to look up place names and nearby places</td><td>Naming where you are, and finding cafes and landmarks</td></tr>
-    <tr><td><strong>Apple</strong></td><td>Purchase and installation data governed by Apple’s own policy</td><td>Distribution via the App Store</td></tr>
+    <tr><td><strong>Apple</strong></td><td>Purchase and installation data governed by Apple’s own policy, and the answer to the age-range request</td><td>Distribution via the App Store, and age checks</td></tr>
   </tbody>
 </table>
 <p>We do not sell personal information, and we do not share it with advertisers or data brokers. If that ever changed, it would only be with your explicit, opt-in consent — never by changing this page alone.</p>
@@ -124,6 +129,7 @@
 
 <h2>Your rights</h2>
 <p>Depending on where you live, you may have the right to access, correct, export or delete your personal data, and to object to certain processing. The delete-account button covers deletion in full. For anything else, email us and we will action it.</p>
+<p><strong>If something goes wrong:</strong> if a breach of our security creates a real risk of significant harm to you, we will notify you and the Office of the Privacy Commissioner of Canada (and, if you live in Quebec, the Commission d’accès à l’information) as soon as feasible, and we keep a record of every breach.</p>
 <p>Legal bases, where UK/EU GDPR applies: <strong>consent</strong> for location, camera, photos and notifications (each requested explicitly, each revocable in your device Settings), and <strong>legitimate interests</strong> for security, abuse prevention and crash diagnostics.</p>
 
 <h2>Age</h2>
@@ -131,6 +137,9 @@
 
 <h2>Changes</h2>
 <p>If this policy changes materially, we will update the date at the top and notify you in the app before the change applies to you. Where the law requires it, we will ask for your consent.</p>
+
+<h2>Language</h2>
+<p>This policy is available in French and English. Both versions are equally valid.</p>
 
 <h2>Contact</h2>
 <p>Orma is operated by <strong>Rayan Aman</strong> (Ontario, Canada), who is also responsible for privacy. Questions about this policy or your data, or to report a privacy concern:<br>
